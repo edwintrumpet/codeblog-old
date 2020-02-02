@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[CodeBlog]]></title><description><![CDATA[Mis apuntes de desarrollo web en español]]></description><link>https://gatsby-starter-hero-blog.greglobinski.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 02 Feb 2020 22:55:01 GMT</lastBuildDate><item><title><![CDATA[Expresiones regulares]]></title><description><![CDATA[Índice Introducción Clases (modelos) Negación Clases predefinidas Caracteres especiales Agrupación Cuantificación Inicio y fin de una línea…]]></description><link>https://gatsby-starter-hero-blog.greglobinski.com/regexp/</link><guid isPermaLink="false">https://gatsby-starter-hero-blog.greglobinski.com/regexp/</guid><pubDate>Sun, 02 Feb 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/39276f7a56fa42e462c6ce5a7ebd7d57/6fbf4/regexp.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 800px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 71.2166172106825%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIBAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHGamBhA//EABoQAAMBAAMAAAAAAAAAAAAAAAABAhEQEhP/2gAIAQEAAQUCmXZ42dRVhrfH/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGRAAAQUAAAAAAAAAAAAAAAAAAQAgITGh/9oACAEBAAY/AoAVa3//xAAbEAEAAgIDAAAAAAAAAAAAAAABABEQMSFBkf/aAAgBAQABPyHbTiJF0hR2eyhUdhXH/9oADAMBAAIAAwAAABDgD//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABwQAQEAAgIDAAAAAAAAAAAAAAERACEQYTFBkf/aAAgBAQABPxDvkSh19x5KSyNGJRxeBK7xyuSVfXH/2Q==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Regexp&quot;
+        title=&quot;&quot;
+        src=&quot;/static/39276f7a56fa42e462c6ce5a7ebd7d57/4b190/regexp.jpg&quot;
+        srcset=&quot;/static/39276f7a56fa42e462c6ce5a7ebd7d57/e07e9/regexp.jpg 200w,
+/static/39276f7a56fa42e462c6ce5a7ebd7d57/066f9/regexp.jpg 400w,
+/static/39276f7a56fa42e462c6ce5a7ebd7d57/4b190/regexp.jpg 800w,
+/static/39276f7a56fa42e462c6ce5a7ebd7d57/6fbf4/regexp.jpg 1011w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;h2&gt;Índice&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#introduccion&quot;&gt;Introducción&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;#clases&quot;&gt;Clases (modelos)&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#negacion&quot;&gt;Negación&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#clases-predefinidas&quot;&gt;Clases predefinidas&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#caracteres-especiales&quot;&gt;Caracteres especiales&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#agrupacion&quot;&gt;Agrupación&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#cuantificacion&quot;&gt;Cuantificación&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#inicio-y-fin-de-una-linea&quot;&gt;Inicio y fin de una línea&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#alternacion&quot;&gt;Alternación&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;#herramientas-y-usos&quot;&gt;Herramientas y usos&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#ejemplos-usando-debuggex&quot;&gt;Ejemplos usando Debuggex&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#usando-visual-studio-code&quot;&gt;Usando Visual Studio Code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a name=&quot;introduccion&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Introducción&lt;/h2&gt;
+&lt;p&gt;Las expresiones regulares nos sirven para representar modelos de patrones que coincidan con textos que sean de nuestro interés.&lt;/p&gt;
+&lt;p&gt;Con estos patrones podemos realizar búsquedas o filtrar información para solo recibir los datos que nos interesan o solo aceptar un formato válido en la presentación de dicha información.&lt;/p&gt;
+&lt;p&gt;&lt;a name=&quot;clases&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Clases (modelos)&lt;/h2&gt;
+&lt;p&gt;Se pueden representar caracteres o conjuntos de caracteres por medio de expresiones envueltas en corchetes ”[ ]”. Estas expresiones pueden contener literalmente los caracteres con los que hará coincidencia la clase, por ejemplo:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;[aym]&lt;/code&gt; coincide con las letras &lt;strong&gt;&lt;em&gt;a&lt;/em&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;em&gt;y&lt;/em&gt;&lt;/strong&gt; y &lt;strong&gt;&lt;em&gt;m&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;También pueden contener rangos de caracteres como por ejemplo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;[0-6]&lt;/code&gt; Coincide con los dígitos del 0 al 6.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;[a-d]&lt;/code&gt; Coincide con las letras minúsculas desde la &lt;strong&gt;&lt;em&gt;a&lt;/em&gt;&lt;/strong&gt; hasta la &lt;strong&gt;&lt;em&gt;d&lt;/em&gt;&lt;/strong&gt; sin acentos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a name=&quot;negacion&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Negación&lt;/h3&gt;
+&lt;p&gt;Cuando lo que deseamos especificar no es el carácter o conjunto de caracteres a representar sino todo lo contrario (los caracteres que no deseamos aceptar), entonces usamos el carácter &lt;code class=&quot;language-text&quot;&gt;^&lt;/code&gt; al comienzo de la clase así:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;[^dgy]&lt;/code&gt; Coincide con cualquier carácter que no sea &lt;strong&gt;&lt;em&gt;d&lt;/em&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;em&gt;g&lt;/em&gt;&lt;/strong&gt; o &lt;strong&gt;&lt;em&gt;y&lt;/em&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;[^0-9]&lt;/code&gt; Coincide con cualquier carácter que no sea un dígito.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a name=&quot;clases-predefinidas&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Clases predefinidas&lt;/h3&gt;
+&lt;p&gt;Existen algunas expresiones ya definidas que coinciden con un carácter o un grupo de ellos, algunas de estas son:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;.&lt;/code&gt; = &lt;code class=&quot;language-text&quot;&gt;[^n]&lt;/code&gt; Cualquier carácter (no incluye el salto de línea).&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;\w&lt;/code&gt; = &lt;code class=&quot;language-text&quot;&gt;[a-zA-Z0-9_]&lt;/code&gt; Números, letras y guión bajo (no incluye acentos ni la ñ).&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;\d&lt;/code&gt; = &lt;code class=&quot;language-text&quot;&gt;[0-9]&lt;/code&gt; Dígitos.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;\s&lt;/code&gt; Espacios, tabulaciones y saltos de línea.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;\t&lt;/code&gt; Tabulaciones.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;\n&lt;/code&gt; Saltos de línea.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;\W&lt;/code&gt; = &lt;code class=&quot;language-text&quot;&gt;[^a-zA-Z0-9_]&lt;/code&gt; Cualquier carácter que no sea alfanumérico.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;\D&lt;/code&gt; = &lt;code class=&quot;language-text&quot;&gt;[^0-9]&lt;/code&gt; Cualquier carácter que no sea un dígito.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;\S&lt;/code&gt; Cualquier carácter que no sea un espacio, una tabulación o un salto de línea.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a name=&quot;caracteres-especiales&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Caracteres especiales&lt;/h2&gt;
+&lt;p&gt;Algunos caracteres como los corchetes que se usan para envolver los modelos son caracteres con significados especiales que si se quisieran representar en un modelo podrían ocasionar errores, por lo que para su uso como carácter debe anteponerse el símbolo &lt;code class=&quot;language-text&quot;&gt;\&lt;/code&gt; que en sí mismo también es un carácter especial con la función de escapar los caracteres que poseen significados especiales o darle significado a otros que no lo poseen.&lt;/p&gt;
+&lt;p&gt;Los carácteres especiales son: &lt;code class=&quot;language-text&quot;&gt;.&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;\&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;/&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;^&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;[&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;]&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;(&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;)&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;-&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;+&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;*&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;?&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;{&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;}&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;$&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;|&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;&amp;lt;&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Por ejemplo, si queremos incluir el carácter &lt;code class=&quot;language-text&quot;&gt;\&lt;/code&gt; y los dígitos en una clase lo usaríamos así &lt;code class=&quot;language-text&quot;&gt;[0-9\\]&lt;/code&gt;. Y si quisieramos incluir las letras mayúsculas y minúsculas sin acentos y los paréntesis usaríamos &lt;code class=&quot;language-text&quot;&gt;[a-zA-Z\(\)]&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a name=&quot;agrupacion&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Agrupación&lt;/h2&gt;
+&lt;p&gt;Los paréntesis ”( )” sirven para agrupar secciones de nuestras expresiones regulares con el fin de definir ámbitos o precedencia de operadores y así evitar errores en la interpretación de la expresión y proporcionar información adicional a los lenguajes de programación en los que se utilizan.&lt;/p&gt;
+&lt;p&gt;Por ejemplo, si defino una expresión regular que consta de dos partes, una son letras y otra son números para que coincida con un texto que tiene nombres y números de teléfonos separados por un espacio. Podría verse así la expresión&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;([a-zA-Z]+) ([0-9]{10,10})&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Como se puede ver se agrupó la sección del nombre y la sección del número, lo que permitiría identificar las secciones cuando estamos realizando una búsqueda en un editor de texto que soporte la búsqueda por medio de expresiones regulares o en un lenguaje de programación.&lt;/p&gt;
+&lt;p&gt;Si deseamos obtener el campo del número de teléfono por medio de un editor de texto que soporte la búsqueda por medio de expresiones regulares o un lenguaje de programación podremos usar el término &lt;code class=&quot;language-text&quot;&gt;$2&lt;/code&gt; que se refiere al segundo grupo.&lt;/p&gt;
+&lt;p&gt;Si en cambio quisieramos obtener el nombre lo haríamos usando el término &lt;code class=&quot;language-text&quot;&gt;$1&lt;/code&gt; que se refiere al primer grupo.&lt;/p&gt;
+&lt;p&gt;En algunos lenguajes de programación o editores de texto pueden haber algunas variaciones.&lt;/p&gt;
+&lt;p&gt;&lt;a name=&quot;cuantificacion&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Cuantificación&lt;/h2&gt;
+&lt;p&gt;Cuando expresamos una clase o indicamos una expresión regular sin ningún elemento adicional estamos indicando que por cada carácter que se ajuste a nuestra expresión regular o clase habrá una coincidencia.&lt;/p&gt;
+&lt;p&gt;Entonces si por ejemplo tenemos la expresión &lt;code class=&quot;language-text&quot;&gt;[a]&lt;/code&gt; y tenemos el texto &lt;strong&gt;&lt;em&gt;aaaa&lt;/em&gt;&lt;/strong&gt; tendremos 4 coinciencias.&lt;/p&gt;
+&lt;p&gt;Pero si lo que deseo es que el texto &lt;strong&gt;&lt;em&gt;aaaa&lt;/em&gt;&lt;/strong&gt; coincida completo con mi expresión podemos usar cuantificadores.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;*&lt;/code&gt; Indica cero o muchas repeticiones.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;+&lt;/code&gt; Indica una o muchas repeticiones.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;?&lt;/code&gt; Indica que puede o no puede incluirse esta parte en el texto.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;+?&lt;/code&gt; Indica una o muchas repeticiones pero escoge la unidad más pequeña que encuentre.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ejemplos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Si quiero indicar que pueden haber muchos o ningún carácter lo expreso como &lt;code class=&quot;language-text&quot;&gt;.*&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Si quiero indicar que pueden haber una o muchas letras lo expreso como &lt;code class=&quot;language-text&quot;&gt;[a-zA-Z]+&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Si quiero indicar que puede o no incluir el símbolo &lt;strong&gt;&lt;em&gt;@&lt;/em&gt;&lt;/strong&gt; lo expreso como &lt;code class=&quot;language-text&quot;&gt;@?&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;También tenemos la opción de indicar por medio de intervalos la cantidad de veces que puede aparecer un carácter o un conjunto de caracteres indicando el valor mínimo de repeticiones y el valor máximo de repeticiones entre llaves separados por una coma así:&lt;/p&gt;
+&lt;p&gt;Si quiero indicar que pueden haber de 3 a 12 dígitos lo expreso como &lt;code class=&quot;language-text&quot;&gt;\d{3,12}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a name=&quot;inicio-y-fin-de-una-linea&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Inicio y fin de una línea&lt;/h2&gt;
+&lt;p&gt;Hasta el momento si escribimos una expresión regular hará coincidencia inlcuso con textos que poseen carácteres adicionales a los que se han indicado en la expresión, realizando búsquedas poco estrictas o un filtrado ineficiente.&lt;/p&gt;
+&lt;p&gt;Para indicarle el comienzo y final de una línea y que la expresión regular se evalue exactamente como está escrita en cada línea, se debe agregar el símbolo &lt;code class=&quot;language-text&quot;&gt;^&lt;/code&gt; al comienzo de la expresión y el símbolo &lt;code class=&quot;language-text&quot;&gt;$&lt;/code&gt; al final.&lt;/p&gt;
+&lt;p&gt;Así si queremos por ejemplo en un documento buscar una línea que posea un nombre y un teléfono de 10 dígitos separados de un guión tendremos la expresión.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;^[a-zA-Z]+[\-][\d]{10,10}$&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a name=&quot;alternacion&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Alternación&lt;/h2&gt;
+&lt;p&gt;Cuando queremos indicar que se realice una coincidencia con una u otra expresión pero no con ambas usamos el símbolo &lt;code class=&quot;language-text&quot;&gt;|&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Por ejemplo, si queremos aceptar dígitos o letras en una línea pero no ambos usaríamos la expresión &lt;code class=&quot;language-text&quot;&gt;^([0-9]|[a-zA-Z])$&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a name=&quot;herramientas-y-usos&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Herramientas y usos&lt;/h2&gt;
+&lt;p&gt;Una herramienta muy útil para visualizar la estructura de las expresiones regulares que estamos creando y para probarlas es &lt;a href=&quot;https://www.debuggex.com/#cheatsheet&quot;&gt;Debuggex&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a name=&quot;ejemplos-usando-debuggex&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Ejemplos usando Debuggex&lt;/h3&gt;
+&lt;p&gt;Ejemplo de agrupación en el que una línea debe coincidir con un nombre y un teléfono separados por un espacio usando la expresión &lt;code class=&quot;language-text&quot;&gt;^([a-zA-Z]+) ([0-9]{10,10})$&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/121c7de1e72a8a43c5612a7afbe08299/2b41d/agrupacion.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 338px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 31.06508875739645%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAC4jAAAuIwF4pT92AAABH0lEQVQY021Q206DQBDl99sn/Q0fNNEHX43GaKIiNtpqgCgtt7bIHRaWXY4DlMbb2czO7Nz2zCggtG27lxFCCEgpIXe+Ptbl0Blju8iPeuV7kw6yoWQusLYd+LYLlpdoebP/jJcMjrWCR7Ga7N9QuivPc5KMimo0WQ7mb7CaP+Pt/g6fHxbqIISoGaSoUIcxdFWFqWlgQUQEKjS8QlmUA8Ou4WQyxeHBFFUyQ+C40B8uMbs6wePFMV6uT+EZJiJ/gchTsVk6WNye97Jd2nBXGubaDc6OnmgNzdAwjhMkcUTzMhTEwNN1rM1ODPikAxqRs4LYlAhpVENT8UrsA2rY+XhdIE3z/3fYSlqukL1Gbw/vETzNsLUcOMY7WJT82eEXPnvIdn+2kSQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;agrupación debuggex&quot;
+        title=&quot;&quot;
+        src=&quot;/static/121c7de1e72a8a43c5612a7afbe08299/2b41d/agrupacion.png&quot;
+        srcset=&quot;/static/121c7de1e72a8a43c5612a7afbe08299/772e8/agrupacion.png 200w,
+/static/121c7de1e72a8a43c5612a7afbe08299/2b41d/agrupacion.png 338w&quot;
+        sizes=&quot;(max-width: 338px) 100vw, 338px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Ejemplo de alternación cuando queremos aceptar dígitos o letras en una línea pero no ambos usando la expresión &lt;code class=&quot;language-text&quot;&gt;^([0-9]+|[a-zA-Z]+)$&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a651c082c96ca240a4d88e24438f7933/f2d11/alternacion.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 276px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 47.10144927536232%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAC4jAAAuIwF4pT92AAABcklEQVQoz32S607CQBCFeUuNL0J8KjX+MTHBuxEBFShQLNAbpd3eobRcChynDYWC0Ukms5nJmf1mZwsg22w2yMdVNMfCHSMeBwgtBwovQOkOEJhOmlt4VJuGO00iy7SFLBnH8S65nEwRGRYiZiPQRmiXn8C9PsAWJcxMN60lTTdb7Xq93jfMDnlbhRFsSYGjaFD5Dlov1+CeL6C0G7BkDaYoU8PJL13SKyWURBHF4jl0lcfY5jChMS1RwdLxwQYSjL4Ak9zoi0TowKWLfKK0DB6mzqPR5MAY24/ME8XJ6Rnk/hd8VoPHLCJUEdM7JmPLrS7ktgB/aGBFZJ6qwdNN6MMGRmod5fcqNG34z8jTiMiUlEqo3KL+eIWPu0t03m7Aem0ilTGnN/xz5OOlxMEUE41BajXxXSmhV7tPo1AtQeI+iVDHMreUzA+2nI9xOMPc8TCmsRL3tzFxb2RgZruI6SfsNMffJo+M3K17wSEFjus5+wGT4avGZ7ZU3QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;alternación debuggex&quot;
+        title=&quot;&quot;
+        src=&quot;/static/a651c082c96ca240a4d88e24438f7933/f2d11/alternacion.png&quot;
+        srcset=&quot;/static/a651c082c96ca240a4d88e24438f7933/772e8/alternacion.png 200w,
+/static/a651c082c96ca240a4d88e24438f7933/f2d11/alternacion.png 276w&quot;
+        sizes=&quot;(max-width: 276px) 100vw, 276px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;&lt;a name=&quot;usando-visual-studio-code&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Usando Visual Studio Code&lt;/h3&gt;
+&lt;p&gt;En este y otros editores de texto además de la opción de búsqueda por texto también nos permite usar una opción de búsqueda por medio de expresiones regulares que nos da mucha potencia en la edición y filtro de la búsqueda.&lt;/p&gt;
+&lt;p&gt;Podríamos probar haciendo un listado de nombres y números de 10 dígitos separados por espacios y a algunas de estas líneas podríamos aumentarle, disminuirle o agregarle carácteres de modo que no coincidan algunas.&lt;/p&gt;
+&lt;p&gt;Y realizamos la búsqueda con la expresión regular &lt;code class=&quot;language-text&quot;&gt;^([a-zA-Z]+) ([0-9]{10,10})$&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/0075490959e668d5f7955c02faff143e/774b6/vscode.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 738px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 19.37669376693767%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAu0lEQVQY043PWw6CMBAFULZhovIQUECgFpAIFsRiAU10/6u5Dk1M+PTjZB7tTDKG5TI4PkMQcURxrrkHBjfIcGRXsKLVeNnpGHNB/RrNTSFMLnD2ObywQER/A6qNz6vDpMioMCqJthFYmRHWdoztLoXlMXKC7Z90nGuT+jbl8/vGSbQ5nxnDICF7BTW9IdUTou3hBTksn9MSDpMu+A0th5dLlow0a8DPLcrqjqYbIUhRSa2sH0gyoZf+6wuJqHulkmVIQwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Búsqueda en vscode&quot;
+        title=&quot;&quot;
+        src=&quot;/static/0075490959e668d5f7955c02faff143e/774b6/vscode.png&quot;
+        srcset=&quot;/static/0075490959e668d5f7955c02faff143e/772e8/vscode.png 200w,
+/static/0075490959e668d5f7955c02faff143e/e17e5/vscode.png 400w,
+/static/0075490959e668d5f7955c02faff143e/774b6/vscode.png 738w&quot;
+        sizes=&quot;(max-width: 738px) 100vw, 738px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Como vemos nos marca en coincidencias con la búsqueda las líneas que se ajustan a nuestra expresión regular.&lt;/p&gt;
+&lt;p&gt;Para eliminar las líneas que no coinciden con el parámetro de búsqueda damos click derecho en el documento y seleccionamos la opción &lt;strong&gt;Cambiar todas las ocurrencias&lt;/strong&gt; que ubicará varios selectores en el final de cada línea que tenga una coincidencia.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ea79b513e56cf94d2c3369a3ab33a811/2c288/seleccion.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 684px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 17.543859649122805%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA2UlEQVQY02XLzU7CQBiF4V6GCdZYFiwY+wsG2wltpx1sB02xipegcWWieHUqLL2t1wKaaFg8Od9JzmcVukZOFdG5pHcqOLKHnDgCT4T4Iuoy2t3B2Qg5mVKm5Y7ONTrbi7vfpjaYcobVNob79oplJwgn2IMxxWjM+1PFenXHZrVk89Luvd6yfiz5fFAHPp4bvt5arKEf44YJbiQRQdKR+OEF11VOYwpmeUJVSC7Vj67/o7YZM9cpC6Owjh2PX3bfo+e49AceVV1ys5iTpglZ9pc8sN1onWOM5hsXipDl4nHsMgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Cambiar todas las ocurrencias&quot;
+        title=&quot;&quot;
+        src=&quot;/static/ea79b513e56cf94d2c3369a3ab33a811/2c288/seleccion.png&quot;
+        srcset=&quot;/static/ea79b513e56cf94d2c3369a3ab33a811/772e8/seleccion.png 200w,
+/static/ea79b513e56cf94d2c3369a3ab33a811/e17e5/seleccion.png 400w,
+/static/ea79b513e56cf94d2c3369a3ab33a811/2c288/seleccion.png 684w&quot;
+        sizes=&quot;(max-width: 684px) 100vw, 684px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Para seleccionarlas podemos usar la combinación de teclas &lt;strong&gt;&lt;code class=&quot;language-text&quot;&gt;Shift&lt;/code&gt;&lt;/strong&gt; + &lt;strong&gt;&lt;code class=&quot;language-text&quot;&gt;Inicio&lt;/code&gt;&lt;/strong&gt; y luego cortamos la selección usando la combinación de teclas &lt;strong&gt;&lt;code class=&quot;language-text&quot;&gt;Ctrl&lt;/code&gt;&lt;/strong&gt; + &lt;strong&gt;&lt;code class=&quot;language-text&quot;&gt;x&lt;/code&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Esto nos deja solo las líneas que no coinciden con nuestro parámetro de búsqueda, lo borramos todo y pegamos el texto que habíamos cortado previamente así obteniendo solo los resultados con el formato correcto.&lt;/p&gt;
+&lt;p&gt;Ahora queremos cambiar ese formato por uno en el que se indique la palabra &lt;strong&gt;Nombre&lt;/strong&gt; seguida de dos puntos, un espacio y en seguida el nombre y en una segunda línea la palabra &lt;strong&gt;Teléfono&lt;/strong&gt; seguida de dos puntos, un espacio y el número de teléfono. Es decir, vamos a dividir cada línea en dos líneas.&lt;/p&gt;
+&lt;p&gt;Entonces en el campo de reemplazar vamos a usar la expresión &lt;code class=&quot;language-text&quot;&gt;Nombre: $1\nTeléfono: $2&lt;/code&gt;, donde &lt;code class=&quot;language-text&quot;&gt;$1&lt;/code&gt; se refiere al primer grupo en nuestra expresión regular, &lt;code class=&quot;language-text&quot;&gt;$2&lt;/code&gt; al segundo grupo y &lt;code class=&quot;language-text&quot;&gt;\n&lt;/code&gt; indica un salto de línea. Con esto le indicamos que reemplace todas las coincidencias.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1f8c392aecb673fb307c04cb6f33a9ee/c0cb9/reemplazando.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 505px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 20.99009900990099%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA5UlEQVQY0z2OWW7CQBBEfYsoQeAFrzPjGe8GbMBESZTtIrn/AV4aS8lHqV5Xd0ntRWlDogZSPZKZkdwchIeVE9Wv3PQzifgmbdnJfZx3xEW/7gOZrSlXaVXi5VLsji9M1w/G+Y1p+eR0eecoqocbtrlwe/1i6s98ZxV1UpHaE9pNFOL3Z4LYEaU1oey8pOhw3VXKC7a9UPcL7eF5zXQ1y2HLXr5eypGfamD2Mx5Cgx8ZgsSxFd74iifRJtB4u72EkePuf7yN7P/sxxXbfUUkWfMY0iqDq1uyXGGMpSg0SpeU1hGEMb9Bznqb3mhdUwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Reemplazo de las ocurrencias&quot;
+        title=&quot;&quot;
+        src=&quot;/static/1f8c392aecb673fb307c04cb6f33a9ee/c0cb9/reemplazando.png&quot;
+        srcset=&quot;/static/1f8c392aecb673fb307c04cb6f33a9ee/772e8/reemplazando.png 200w,
+/static/1f8c392aecb673fb307c04cb6f33a9ee/e17e5/reemplazando.png 400w,
+/static/1f8c392aecb673fb307c04cb6f33a9ee/c0cb9/reemplazando.png 505w&quot;
+        sizes=&quot;(max-width: 505px) 100vw, 505px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Con eso obtenemos solamente la información que es útil y en el formato deseado.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e3d9f12d34d9810f526e6c4e9e90d0c8/c1724/editado.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 304px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 44.078947368421055%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAC4jAAAuIwF4pT92AAABQElEQVQoz32S6W6CUBCFeYkmtVZBUQuyb2UTvKAEJW1s0/qnaRrf/yVOB1INpOKPL3OXzMw5cy+nGw5qFNWCplmQFRO8aOCBV/E40TCa6uBnZocx3ffBDSjRcBlY+YaY7WE9Z5gsbKxYhSSraJ9iKKgttH8N2nC1At1NEaU7sE2FaL2DG+bUJIEbbem8RLzewws3FHfw4+Ki+qrC+lK1VvCTElFSwKMiTpBBMSOYHoPrE0EO3V7RPqXzuEnsVVjPySabWXkgi7Vl1iT48ZYUFgipkWYnGIkmhIUDUbIhzI1G5VjUm9imUSgbIVlcI4jzxlpISuuiAXvFy+cPqvdvlIcvWp/wcTxCkhTcDWUMxkvcj+QO3Fm+MLfoMaxufHIwldwOi6UHYXZWeGWG54L9X4ES/+xconjjlW8NuJ/+f/gLp+MRORyyLDMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Resultado de la edición&quot;
+        title=&quot;&quot;
+        src=&quot;/static/e3d9f12d34d9810f526e6c4e9e90d0c8/c1724/editado.png&quot;
+        srcset=&quot;/static/e3d9f12d34d9810f526e6c4e9e90d0c8/772e8/editado.png 200w,
+/static/e3d9f12d34d9810f526e6c4e9e90d0c8/c1724/editado.png 304w&quot;
+        sizes=&quot;(max-width: 304px) 100vw, 304px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;</content:encoded></item></channel></rss>
