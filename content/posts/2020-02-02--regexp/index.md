@@ -7,30 +7,9 @@ author: Edwin García
 
 ![Regexp](regexp.jpg)
 
-## Índice
-
-- [Introducción](#introduccion)
-- [Clases (modelos)](#clases)
-  - [Negación](#negacion)
-  - [Clases predefinidas](#clases-predefinidas)
-- [Caracteres especiales](#caracteres-especiales)
-- [Agrupación](#agrupacion)
-- [Cuantificación](#cuantificacion)
-- [Inicio y fin de una línea](#inicio-y-fin-de-una-linea)
-- [Alternación](#alternacion)
-- [Herramientas y usos](#herramientas-y-usos)
-  - [Ejemplos usando Debuggex](#ejemplos-usando-debuggex)
-  - [Usando Visual Studio Code](#usando-visual-studio-code)
-
-<a name="introduccion"></a>
-
-## Introducción
-
 Las expresiones regulares nos sirven para representar modelos de patrones que coincidan con textos que sean de nuestro interés.
 
 Con estos patrones podemos realizar búsquedas o filtrar información para solo recibir los datos que nos interesan o solo aceptar un formato válido en la presentación de dicha información.
-
-<a name="clases"></a>
 
 ## Clases (modelos)
 
@@ -43,16 +22,12 @@ También pueden contener rangos de caracteres como por ejemplo:
 - `[0-6]` Coincide con los dígitos del 0 al 6.
 - `[a-d]` Coincide con las letras minúsculas desde la **_a_** hasta la **_d_** sin acentos.
 
-<a name="negacion"></a>
-
 ### Negación
 
 Cuando lo que deseamos especificar no es el carácter o conjunto de caracteres a representar sino todo lo contrario (los caracteres que no deseamos aceptar), entonces usamos el carácter `^` al comienzo de la clase así:
 
 - `[^dgy]` Coincide con cualquier carácter que no sea **_d_**, **_g_** o **_y_**.
 - `[^0-9]` Coincide con cualquier carácter que no sea un dígito.
-
-<a name="clases-predefinidas"></a>
 
 ### Clases predefinidas
 
@@ -68,8 +43,6 @@ Existen algunas expresiones ya definidas que coinciden con un carácter o un gru
 - `\D` = `[^0-9]` Cualquier carácter que no sea un dígito.
 - `\S` Cualquier carácter que no sea un espacio, una tabulación o un salto de línea.
 
-<a name="caracteres-especiales"></a>
-
 ## Caracteres especiales
 
 Algunos caracteres como los corchetes que se usan para envolver los modelos son caracteres con significados especiales que si se quisieran representar en un modelo podrían ocasionar errores, por lo que para su uso como carácter debe anteponerse el símbolo `\` que en sí mismo también es un carácter especial con la función de escapar los caracteres que poseen significados especiales o darle significado a otros que no lo poseen.
@@ -77,8 +50,6 @@ Algunos caracteres como los corchetes que se usan para envolver los modelos son 
 Los carácteres especiales son: `.`, `\`, `/`, `^`, `[`, `]`, `(`, `)`, `-`, `+`, `*`, `?`, `{`, `}`, `$`, `|`, `<`, `>`.
 
 Por ejemplo, si queremos incluir el carácter `\` y los dígitos en una clase lo usaríamos así `[0-9\\]`. Y si quisieramos incluir las letras mayúsculas y minúsculas sin acentos y los paréntesis usaríamos `[a-zA-Z\(\)]`.
-
-<a name="agrupacion"></a>
 
 ## Agrupación
 
@@ -95,8 +66,6 @@ Si deseamos obtener el campo del número de teléfono por medio de un editor de 
 Si en cambio quisieramos obtener el nombre lo haríamos usando el término `$1` que se refiere al primer grupo.
 
 En algunos lenguajes de programación o editores de texto pueden haber algunas variaciones.
-
-<a name="cuantificacion"></a>
 
 ## Cuantificación
 
@@ -121,8 +90,6 @@ También tenemos la opción de indicar por medio de intervalos la cantidad de ve
 
 Si quiero indicar que pueden haber de 3 a 12 dígitos lo expreso como `\d{3,12}`
 
-<a name="inicio-y-fin-de-una-linea"></a>
-
 ## Inicio y fin de una línea
 
 Hasta el momento si escribimos una expresión regular hará coincidencia inlcuso con textos que poseen carácteres adicionales a los que se han indicado en la expresión, realizando búsquedas poco estrictas o un filtrado ineficiente.
@@ -133,21 +100,15 @@ Así si queremos por ejemplo en un documento buscar una línea que posea un nomb
 
 `^[a-zA-Z]+[\-][\d]{10,10}$`
 
-<a name="alternacion"></a>
-
 ## Alternación
 
 Cuando queremos indicar que se realice una coincidencia con una u otra expresión pero no con ambas usamos el símbolo `|`.
 
 Por ejemplo, si queremos aceptar dígitos o letras en una línea pero no ambos usaríamos la expresión `^([0-9]|[a-zA-Z])$`
 
-<a name="herramientas-y-usos"></a>
-
 ## Herramientas y usos
 
 Una herramienta muy útil para visualizar la estructura de las expresiones regulares que estamos creando y para probarlas es [Debuggex](https://www.debuggex.com/#cheatsheet).
-
-<a name="ejemplos-usando-debuggex"></a>
 
 ### Ejemplos usando Debuggex
 
@@ -158,8 +119,6 @@ Ejemplo de agrupación en el que una línea debe coincidir con un nombre y un te
 Ejemplo de alternación cuando queremos aceptar dígitos o letras en una línea pero no ambos usando la expresión `^([0-9]+|[a-zA-Z]+)$`
 
 ![alternación debuggex](alternacion.png)
-
-<a name="usando-visual-studio-code"></a>
 
 ### Usando Visual Studio Code
 

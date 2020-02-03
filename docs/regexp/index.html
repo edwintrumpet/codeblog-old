@@ -98,34 +98,8 @@ main{width:auto;display:block;}</style><title data-react-helmet="true">Expresion
   
   </a>
     </p>
-<h2>Índice</h2>
-<ul>
-<li><a href="#introduccion">Introducción</a></li>
-<li>
-<p><a href="#clases">Clases (modelos)</a></p>
-<ul>
-<li><a href="#negacion">Negación</a></li>
-<li><a href="#clases-predefinidas">Clases predefinidas</a></li>
-</ul>
-</li>
-<li><a href="#caracteres-especiales">Caracteres especiales</a></li>
-<li><a href="#agrupacion">Agrupación</a></li>
-<li><a href="#cuantificacion">Cuantificación</a></li>
-<li><a href="#inicio-y-fin-de-una-linea">Inicio y fin de una línea</a></li>
-<li><a href="#alternacion">Alternación</a></li>
-<li>
-<p><a href="#herramientas-y-usos">Herramientas y usos</a></p>
-<ul>
-<li><a href="#ejemplos-usando-debuggex">Ejemplos usando Debuggex</a></li>
-<li><a href="#usando-visual-studio-code">Usando Visual Studio Code</a></li>
-</ul>
-</li>
-</ul>
-<p><a name="introduccion"></a></p>
-<h2>Introducción</h2>
 <p>Las expresiones regulares nos sirven para representar modelos de patrones que coincidan con textos que sean de nuestro interés.</p>
 <p>Con estos patrones podemos realizar búsquedas o filtrar información para solo recibir los datos que nos interesan o solo aceptar un formato válido en la presentación de dicha información.</p>
-<p><a name="clases"></a></p>
 <h2>Clases (modelos)</h2>
 <p>Se pueden representar caracteres o conjuntos de caracteres por medio de expresiones envueltas en corchetes ”[ ]”. Estas expresiones pueden contener literalmente los caracteres con los que hará coincidencia la clase, por ejemplo:</p>
 <p><code class="language-text">[aym]</code> coincide con las letras <strong><em>a</em></strong>, <strong><em>y</em></strong> y <strong><em>m</em></strong>.</p>
@@ -134,14 +108,12 @@ main{width:auto;display:block;}</style><title data-react-helmet="true">Expresion
 <li><code class="language-text">[0-6]</code> Coincide con los dígitos del 0 al 6.</li>
 <li><code class="language-text">[a-d]</code> Coincide con las letras minúsculas desde la <strong><em>a</em></strong> hasta la <strong><em>d</em></strong> sin acentos.</li>
 </ul>
-<p><a name="negacion"></a></p>
 <h3>Negación</h3>
 <p>Cuando lo que deseamos especificar no es el carácter o conjunto de caracteres a representar sino todo lo contrario (los caracteres que no deseamos aceptar), entonces usamos el carácter <code class="language-text">^</code> al comienzo de la clase así:</p>
 <ul>
 <li><code class="language-text">[^dgy]</code> Coincide con cualquier carácter que no sea <strong><em>d</em></strong>, <strong><em>g</em></strong> o <strong><em>y</em></strong>.</li>
 <li><code class="language-text">[^0-9]</code> Coincide con cualquier carácter que no sea un dígito.</li>
 </ul>
-<p><a name="clases-predefinidas"></a></p>
 <h3>Clases predefinidas</h3>
 <p>Existen algunas expresiones ya definidas que coinciden con un carácter o un grupo de ellos, algunas de estas son:</p>
 <ul>
@@ -155,12 +127,10 @@ main{width:auto;display:block;}</style><title data-react-helmet="true">Expresion
 <li><code class="language-text">\D</code> = <code class="language-text">[^0-9]</code> Cualquier carácter que no sea un dígito.</li>
 <li><code class="language-text">\S</code> Cualquier carácter que no sea un espacio, una tabulación o un salto de línea.</li>
 </ul>
-<p><a name="caracteres-especiales"></a></p>
 <h2>Caracteres especiales</h2>
 <p>Algunos caracteres como los corchetes que se usan para envolver los modelos son caracteres con significados especiales que si se quisieran representar en un modelo podrían ocasionar errores, por lo que para su uso como carácter debe anteponerse el símbolo <code class="language-text">\</code> que en sí mismo también es un carácter especial con la función de escapar los caracteres que poseen significados especiales o darle significado a otros que no lo poseen.</p>
 <p>Los carácteres especiales son: <code class="language-text">.</code>, <code class="language-text">\</code>, <code class="language-text">/</code>, <code class="language-text">^</code>, <code class="language-text">[</code>, <code class="language-text">]</code>, <code class="language-text">(</code>, <code class="language-text">)</code>, <code class="language-text">-</code>, <code class="language-text">+</code>, <code class="language-text">*</code>, <code class="language-text">?</code>, <code class="language-text">{</code>, <code class="language-text">}</code>, <code class="language-text">$</code>, <code class="language-text">|</code>, <code class="language-text">&lt;</code>, <code class="language-text">&gt;</code>.</p>
 <p>Por ejemplo, si queremos incluir el carácter <code class="language-text">\</code> y los dígitos en una clase lo usaríamos así <code class="language-text">[0-9\\]</code>. Y si quisieramos incluir las letras mayúsculas y minúsculas sin acentos y los paréntesis usaríamos <code class="language-text">[a-zA-Z\(\)]</code>.</p>
-<p><a name="agrupacion"></a></p>
 <h2>Agrupación</h2>
 <p>Los paréntesis ”( )” sirven para agrupar secciones de nuestras expresiones regulares con el fin de definir ámbitos o precedencia de operadores y así evitar errores en la interpretación de la expresión y proporcionar información adicional a los lenguajes de programación en los que se utilizan.</p>
 <p>Por ejemplo, si defino una expresión regular que consta de dos partes, una son letras y otra son números para que coincida con un texto que tiene nombres y números de teléfonos separados por un espacio. Podría verse así la expresión</p>
@@ -169,7 +139,6 @@ main{width:auto;display:block;}</style><title data-react-helmet="true">Expresion
 <p>Si deseamos obtener el campo del número de teléfono por medio de un editor de texto que soporte la búsqueda por medio de expresiones regulares o un lenguaje de programación podremos usar el término <code class="language-text">$2</code> que se refiere al segundo grupo.</p>
 <p>Si en cambio quisieramos obtener el nombre lo haríamos usando el término <code class="language-text">$1</code> que se refiere al primer grupo.</p>
 <p>En algunos lenguajes de programación o editores de texto pueden haber algunas variaciones.</p>
-<p><a name="cuantificacion"></a></p>
 <h2>Cuantificación</h2>
 <p>Cuando expresamos una clase o indicamos una expresión regular sin ningún elemento adicional estamos indicando que por cada carácter que se ajuste a nuestra expresión regular o clase habrá una coincidencia.</p>
 <p>Entonces si por ejemplo tenemos la expresión <code class="language-text">[a]</code> y tenemos el texto <strong><em>aaaa</em></strong> tendremos 4 coinciencias.</p>
@@ -188,20 +157,16 @@ main{width:auto;display:block;}</style><title data-react-helmet="true">Expresion
 </ul>
 <p>También tenemos la opción de indicar por medio de intervalos la cantidad de veces que puede aparecer un carácter o un conjunto de caracteres indicando el valor mínimo de repeticiones y el valor máximo de repeticiones entre llaves separados por una coma así:</p>
 <p>Si quiero indicar que pueden haber de 3 a 12 dígitos lo expreso como <code class="language-text">\d{3,12}</code></p>
-<p><a name="inicio-y-fin-de-una-linea"></a></p>
 <h2>Inicio y fin de una línea</h2>
 <p>Hasta el momento si escribimos una expresión regular hará coincidencia inlcuso con textos que poseen carácteres adicionales a los que se han indicado en la expresión, realizando búsquedas poco estrictas o un filtrado ineficiente.</p>
 <p>Para indicarle el comienzo y final de una línea y que la expresión regular se evalue exactamente como está escrita en cada línea, se debe agregar el símbolo <code class="language-text">^</code> al comienzo de la expresión y el símbolo <code class="language-text">$</code> al final.</p>
 <p>Así si queremos por ejemplo en un documento buscar una línea que posea un nombre y un teléfono de 10 dígitos separados de un guión tendremos la expresión.</p>
 <p><code class="language-text">^[a-zA-Z]+[\-][\d]{10,10}$</code></p>
-<p><a name="alternacion"></a></p>
 <h2>Alternación</h2>
 <p>Cuando queremos indicar que se realice una coincidencia con una u otra expresión pero no con ambas usamos el símbolo <code class="language-text">|</code>.</p>
 <p>Por ejemplo, si queremos aceptar dígitos o letras en una línea pero no ambos usaríamos la expresión <code class="language-text">^([0-9]|[a-zA-Z])$</code></p>
-<p><a name="herramientas-y-usos"></a></p>
 <h2>Herramientas y usos</h2>
 <p>Una herramienta muy útil para visualizar la estructura de las expresiones regulares que estamos creando y para probarlas es <a href="https://www.debuggex.com/#cheatsheet">Debuggex</a>.</p>
-<p><a name="ejemplos-usando-debuggex"></a></p>
 <h3>Ejemplos usando Debuggex</h3>
 <p>Ejemplo de agrupación en el que una línea debe coincidir con un nombre y un teléfono separados por un espacio usando la expresión <code class="language-text">^([a-zA-Z]+) ([0-9]{10,10})$</code></p>
 <p>
@@ -269,7 +234,6 @@ main{width:auto;display:block;}</style><title data-react-helmet="true">Expresion
   
   </a>
     </p>
-<p><a name="usando-visual-studio-code"></a></p>
 <h3>Usando Visual Studio Code</h3>
 <p>En este y otros editores de texto además de la opción de búsqueda por texto también nos permite usar una opción de búsqueda por medio de expresiones regulares que nos da mucha potencia en la edición y filtro de la búsqueda.</p>
 <p>Podríamos probar haciendo un listado de nombres y números de 10 dígitos separados por espacios y a algunas de estas líneas podríamos aumentarle, disminuirle o agregarle carácteres de modo que no coincidan algunas.</p>
