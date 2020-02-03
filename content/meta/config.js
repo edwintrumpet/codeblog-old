@@ -19,7 +19,7 @@ module.exports = {
   manifestName: "CodeBlog",
   manifestShortName: "CodeBlog", // max 12 characters
   manifestStartUrl: "/index.html",
-  manifestBackgroundColor: "black",
+  manifestBackgroundColor: "white",
   manifestThemeColor: "#666",
   manifestDisplay: "standalone",
 
