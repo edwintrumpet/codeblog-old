@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[CodeBlog]]></title><description><![CDATA[Mis apuntes de desarrollo web en español]]></description><link>https://edwintrumpet.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 03 Feb 2020 00:20:01 GMT</lastBuildDate><item><title><![CDATA[Expresiones regulares]]></title><description><![CDATA[Índice Introducción Clases (modelos) Negación Clases predefinidas Caracteres especiales Agrupación Cuantificación Inicio y fin de una línea…]]></description><link>https://edwintrumpet.github.io/regexp/</link><guid isPermaLink="false">https://edwintrumpet.github.io/regexp/</guid><pubDate>Sun, 02 Feb 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[CodeBlog]]></title><description><![CDATA[Mis apuntes de desarrollo web en español]]></description><link>https://edwintrumpet.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 03 Feb 2020 00:43:41 GMT</lastBuildDate><item><title><![CDATA[Expresiones regulares]]></title><description><![CDATA[Índice Introducción Clases (modelos) Negación Clases predefinidas Caracteres especiales Agrupación Cuantificación Inicio y fin de una línea…]]></description><link>https://edwintrumpet.github.io/regexp/</link><guid isPermaLink="false">https://edwintrumpet.github.io/regexp/</guid><pubDate>Sun, 02 Feb 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/39276f7a56fa42e462c6ce5a7ebd7d57/6fbf4/regexp.jpg&quot;
+    href=&quot;/codeblog/static/39276f7a56fa42e462c6ce5a7ebd7d57/6fbf4/regexp.jpg&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -20,11 +20,11 @@
         style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
         alt=&quot;Regexp&quot;
         title=&quot;&quot;
-        src=&quot;/static/39276f7a56fa42e462c6ce5a7ebd7d57/4b190/regexp.jpg&quot;
-        srcset=&quot;/static/39276f7a56fa42e462c6ce5a7ebd7d57/e07e9/regexp.jpg 200w,
-/static/39276f7a56fa42e462c6ce5a7ebd7d57/066f9/regexp.jpg 400w,
-/static/39276f7a56fa42e462c6ce5a7ebd7d57/4b190/regexp.jpg 800w,
-/static/39276f7a56fa42e462c6ce5a7ebd7d57/6fbf4/regexp.jpg 1011w&quot;
+        src=&quot;/codeblog/static/39276f7a56fa42e462c6ce5a7ebd7d57/4b190/regexp.jpg&quot;
+        srcset=&quot;/codeblog/static/39276f7a56fa42e462c6ce5a7ebd7d57/e07e9/regexp.jpg 200w,
+/codeblog/static/39276f7a56fa42e462c6ce5a7ebd7d57/066f9/regexp.jpg 400w,
+/codeblog/static/39276f7a56fa42e462c6ce5a7ebd7d57/4b190/regexp.jpg 800w,
+/codeblog/static/39276f7a56fa42e462c6ce5a7ebd7d57/6fbf4/regexp.jpg 1011w&quot;
         sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
       /&gt;
     &lt;/span&gt;
@@ -141,7 +141,7 @@
 &lt;p&gt;
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/121c7de1e72a8a43c5612a7afbe08299/2b41d/agrupacion.png&quot;
+    href=&quot;/codeblog/static/121c7de1e72a8a43c5612a7afbe08299/2b41d/agrupacion.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -160,9 +160,9 @@
         style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
         alt=&quot;agrupación debuggex&quot;
         title=&quot;&quot;
-        src=&quot;/static/121c7de1e72a8a43c5612a7afbe08299/2b41d/agrupacion.png&quot;
-        srcset=&quot;/static/121c7de1e72a8a43c5612a7afbe08299/772e8/agrupacion.png 200w,
-/static/121c7de1e72a8a43c5612a7afbe08299/2b41d/agrupacion.png 338w&quot;
+        src=&quot;/codeblog/static/121c7de1e72a8a43c5612a7afbe08299/2b41d/agrupacion.png&quot;
+        srcset=&quot;/codeblog/static/121c7de1e72a8a43c5612a7afbe08299/772e8/agrupacion.png 200w,
+/codeblog/static/121c7de1e72a8a43c5612a7afbe08299/2b41d/agrupacion.png 338w&quot;
         sizes=&quot;(max-width: 338px) 100vw, 338px&quot;
       /&gt;
     &lt;/span&gt;
@@ -174,7 +174,7 @@
 &lt;p&gt;
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/a651c082c96ca240a4d88e24438f7933/f2d11/alternacion.png&quot;
+    href=&quot;/codeblog/static/a651c082c96ca240a4d88e24438f7933/f2d11/alternacion.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -193,9 +193,9 @@
         style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
         alt=&quot;alternación debuggex&quot;
         title=&quot;&quot;
-        src=&quot;/static/a651c082c96ca240a4d88e24438f7933/f2d11/alternacion.png&quot;
-        srcset=&quot;/static/a651c082c96ca240a4d88e24438f7933/772e8/alternacion.png 200w,
-/static/a651c082c96ca240a4d88e24438f7933/f2d11/alternacion.png 276w&quot;
+        src=&quot;/codeblog/static/a651c082c96ca240a4d88e24438f7933/f2d11/alternacion.png&quot;
+        srcset=&quot;/codeblog/static/a651c082c96ca240a4d88e24438f7933/772e8/alternacion.png 200w,
+/codeblog/static/a651c082c96ca240a4d88e24438f7933/f2d11/alternacion.png 276w&quot;
         sizes=&quot;(max-width: 276px) 100vw, 276px&quot;
       /&gt;
     &lt;/span&gt;
@@ -211,7 +211,7 @@
 &lt;p&gt;
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/0075490959e668d5f7955c02faff143e/774b6/vscode.png&quot;
+    href=&quot;/codeblog/static/0075490959e668d5f7955c02faff143e/774b6/vscode.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -230,10 +230,10 @@
         style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
         alt=&quot;Búsqueda en vscode&quot;
         title=&quot;&quot;
-        src=&quot;/static/0075490959e668d5f7955c02faff143e/774b6/vscode.png&quot;
-        srcset=&quot;/static/0075490959e668d5f7955c02faff143e/772e8/vscode.png 200w,
-/static/0075490959e668d5f7955c02faff143e/e17e5/vscode.png 400w,
-/static/0075490959e668d5f7955c02faff143e/774b6/vscode.png 738w&quot;
+        src=&quot;/codeblog/static/0075490959e668d5f7955c02faff143e/774b6/vscode.png&quot;
+        srcset=&quot;/codeblog/static/0075490959e668d5f7955c02faff143e/772e8/vscode.png 200w,
+/codeblog/static/0075490959e668d5f7955c02faff143e/e17e5/vscode.png 400w,
+/codeblog/static/0075490959e668d5f7955c02faff143e/774b6/vscode.png 738w&quot;
         sizes=&quot;(max-width: 738px) 100vw, 738px&quot;
       /&gt;
     &lt;/span&gt;
@@ -246,7 +246,7 @@
 &lt;p&gt;
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/ea79b513e56cf94d2c3369a3ab33a811/2c288/seleccion.png&quot;
+    href=&quot;/codeblog/static/ea79b513e56cf94d2c3369a3ab33a811/2c288/seleccion.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -265,10 +265,10 @@
         style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
         alt=&quot;Cambiar todas las ocurrencias&quot;
         title=&quot;&quot;
-        src=&quot;/static/ea79b513e56cf94d2c3369a3ab33a811/2c288/seleccion.png&quot;
-        srcset=&quot;/static/ea79b513e56cf94d2c3369a3ab33a811/772e8/seleccion.png 200w,
-/static/ea79b513e56cf94d2c3369a3ab33a811/e17e5/seleccion.png 400w,
-/static/ea79b513e56cf94d2c3369a3ab33a811/2c288/seleccion.png 684w&quot;
+        src=&quot;/codeblog/static/ea79b513e56cf94d2c3369a3ab33a811/2c288/seleccion.png&quot;
+        srcset=&quot;/codeblog/static/ea79b513e56cf94d2c3369a3ab33a811/772e8/seleccion.png 200w,
+/codeblog/static/ea79b513e56cf94d2c3369a3ab33a811/e17e5/seleccion.png 400w,
+/codeblog/static/ea79b513e56cf94d2c3369a3ab33a811/2c288/seleccion.png 684w&quot;
         sizes=&quot;(max-width: 684px) 100vw, 684px&quot;
       /&gt;
     &lt;/span&gt;
@@ -283,7 +283,7 @@
 &lt;p&gt;
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/1f8c392aecb673fb307c04cb6f33a9ee/c0cb9/reemplazando.png&quot;
+    href=&quot;/codeblog/static/1f8c392aecb673fb307c04cb6f33a9ee/c0cb9/reemplazando.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -302,10 +302,10 @@
         style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
         alt=&quot;Reemplazo de las ocurrencias&quot;
         title=&quot;&quot;
-        src=&quot;/static/1f8c392aecb673fb307c04cb6f33a9ee/c0cb9/reemplazando.png&quot;
-        srcset=&quot;/static/1f8c392aecb673fb307c04cb6f33a9ee/772e8/reemplazando.png 200w,
-/static/1f8c392aecb673fb307c04cb6f33a9ee/e17e5/reemplazando.png 400w,
-/static/1f8c392aecb673fb307c04cb6f33a9ee/c0cb9/reemplazando.png 505w&quot;
+        src=&quot;/codeblog/static/1f8c392aecb673fb307c04cb6f33a9ee/c0cb9/reemplazando.png&quot;
+        srcset=&quot;/codeblog/static/1f8c392aecb673fb307c04cb6f33a9ee/772e8/reemplazando.png 200w,
+/codeblog/static/1f8c392aecb673fb307c04cb6f33a9ee/e17e5/reemplazando.png 400w,
+/codeblog/static/1f8c392aecb673fb307c04cb6f33a9ee/c0cb9/reemplazando.png 505w&quot;
         sizes=&quot;(max-width: 505px) 100vw, 505px&quot;
       /&gt;
     &lt;/span&gt;
@@ -317,7 +317,7 @@
 &lt;p&gt;
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/e3d9f12d34d9810f526e6c4e9e90d0c8/c1724/editado.png&quot;
+    href=&quot;/codeblog/static/e3d9f12d34d9810f526e6c4e9e90d0c8/c1724/editado.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -336,9 +336,9 @@
         style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
         alt=&quot;Resultado de la edición&quot;
         title=&quot;&quot;
-        src=&quot;/static/e3d9f12d34d9810f526e6c4e9e90d0c8/c1724/editado.png&quot;
-        srcset=&quot;/static/e3d9f12d34d9810f526e6c4e9e90d0c8/772e8/editado.png 200w,
-/static/e3d9f12d34d9810f526e6c4e9e90d0c8/c1724/editado.png 304w&quot;
+        src=&quot;/codeblog/static/e3d9f12d34d9810f526e6c4e9e90d0c8/c1724/editado.png&quot;
+        srcset=&quot;/codeblog/static/e3d9f12d34d9810f526e6c4e9e90d0c8/772e8/editado.png 200w,
+/codeblog/static/e3d9f12d34d9810f526e6c4e9e90d0c8/c1724/editado.png 304w&quot;
         sizes=&quot;(max-width: 304px) 100vw, 304px&quot;
       /&gt;
     &lt;/span&gt;
