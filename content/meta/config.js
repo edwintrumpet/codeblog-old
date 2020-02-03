@@ -2,8 +2,8 @@ module.exports = {
   siteTitle: "CodeBlog", // <title>
   shortSiteTitle: "CodeBlog", // <title> ending for posts and pages
   siteDescription: "Mis apuntes de desarrollo web en español",
-  siteUrl: "https://edwintrumpet.github.io/codeblog",
-  // pathPrefix: "",
+  siteUrl: "https://edwintrumpet.github.io",
+  pathPrefix: "/codeblog",
   siteImage: "preview.jpg",
   siteLanguage: "es",
 
