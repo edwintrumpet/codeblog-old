@@ -5,7 +5,7 @@ module.exports = {
   siteUrl: "https://edwintrumpet.github.io",
   pathPrefix: "/codeblog",
   siteImage: "preview.jpg",
-  siteLanguage: "es",
+  siteLanguage: "es-CO",
 
   /* author */
   authorName: "Edwin García",
