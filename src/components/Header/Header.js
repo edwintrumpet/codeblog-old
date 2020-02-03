@@ -141,7 +141,7 @@ class Header extends React.Component {
             left: 0;
             right: 0;
             height: 1px;
-            top: ${path === "/codeblog"
+            top: ${path === "/codeblog/"
               ? theme.header.height.homepage
               : theme.header.height.default};
           }
