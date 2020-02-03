@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import config from "../../../content/meta/config";
 
 import { FaArrowDown } from "react-icons/fa/";
 
@@ -20,7 +21,7 @@ const Hero = props => {
         .hero {
           align-items: center;
           background: ${theme.hero.background};
-          background-image: url(${backgrounds.mobile});
+          background-image: url(${config.pathPrefix}+${backgrounds.mobile});
           background-size: cover;
           color: ${theme.text.color.primary.inverse};
           display: flex;
@@ -98,7 +99,7 @@ const Hero = props => {
 
         @from-width tablet {
           .hero {
-            background-image: url(${backgrounds.tablet});
+            background-image: url(${config.pathPrefix}+${backgrounds.tablet});
           }
 
           h1 {
@@ -113,7 +114,7 @@ const Hero = props => {
 
         @from-width desktop {
           .hero {
-            background-image: url(${backgrounds.desktop});
+            background-image: url(${config.pathPrefix}+${backgrounds.desktop});
           }
 
           h1 {
